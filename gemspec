@@ -1,0 +1,3 @@
+  'rubygems'
+ 'aws-sdk'
+ 'nokogiri'
