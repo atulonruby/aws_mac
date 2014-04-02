@@ -1,11 +1,4 @@
 module AwsMac
-  module Access
-    KEY = 'AKIAINXHMBXIPB4STG5Q'
-    SECRET_KEY = '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'
-    REGION = 'us-west-2'
-    BUCKET_NAME = "PracticeSession"
-  end
-
   class Uploader
     include AwsMac::Access
      attr_accessor :file, :file_name_in_bucket, :bucket_name
@@ -14,15 +7,14 @@ module AwsMac
 
        @file_name_in_bucket = options[:file_name] 
        @file = File.open(options[:path])
-       @bucket_name = options[:bucket_name] || BUCKET_NAME
+       @bucket_name = options[:bucket_name] || "PracticeSession"
+       @key = options[:key]
+       @secret_key = options[:secret]
 
-       h = {
-         :aws_access_key_id => KEY,
-         :aws_secret_access_key => SECRET_KEY
-       }
+       
        AWS.config(
-         :access_key_id => 'AKIAINXHMBXIPB4STG5Q', 
-         :secret_access_key => '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'
+         :access_key_id => @key, 
+         :secret_access_key => @secret_key
        )
        s3 = AWS::S3.new
        bucket_name = @bucket_name
