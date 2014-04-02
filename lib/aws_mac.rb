@@ -1,3 +1,4 @@
+
 module AwsMac
   class Uploader
      attr_accessor :file, :file_name_in_bucket, :bucket_name
