@@ -1,6 +1,5 @@
 module AwsMac
   class Uploader
-    include AwsMac::Access
      attr_accessor :file, :file_name_in_bucket, :bucket_name
 
      def initialize(options={})
